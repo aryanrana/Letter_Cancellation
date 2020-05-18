@@ -492,10 +492,15 @@ function startTimer() {
   var m = timeArray[0];
   var s = checkSecond((timeArray[1] - 1));
   if(s==59){m=m-1}
-  if(m<0){alert('Time\'s Up');check();reset();}
+  
   
   document.getElementById('timer').innerHTML = m + ":" + s;
-  setTimeout(startTimer, 1000);
+  if(m>=0){
+  setTimeout(startTimer,1000);
+  }
+  else{
+   alert('Time\'s Up');check();reset();
+  }
 }
 
 var cancelled=new Array();
@@ -523,6 +528,7 @@ function checkSecond(sec) {
   return sec;
 }
 
+
 var left=0;
 var right=0;
 var wrong=0;
@@ -530,6 +536,7 @@ var mark=0;
 var click=0;
        
         function put() {
+            var stim=Math.floor(Math.random()*26);
             document.getElementById("stimulus").innerHTML=par[stim];        
             pos=shuffle(pos)
             for(var i=0;i<60;i++){
@@ -565,6 +572,7 @@ var click=0;
                     alert("You marked "+mark+" out of which "+right+" were right, "+left+" were not marked and "+wrong+" were marked wrong.")
                 }
                 reset();
+                m=-1;
         }
 
     function reset(){
@@ -572,7 +580,7 @@ var click=0;
         click=0;
         m=3;
         s=0;  
-    }
+    }    
 //pos->stimulus saved  apos->values         
     </script>
 </html>
