@@ -492,7 +492,7 @@ function startTimer() {
   var m = timeArray[0];
   var s = checkSecond((timeArray[1] - 1));
   if(s==59){m=m-1}
-  if(m<0){alert('Time\'s Up');check();}
+  if(m<0){alert('Time\'s Up');check();reset();}
   
   document.getElementById('timer').innerHTML = m + ":" + s;
   setTimeout(startTimer, 1000);
@@ -570,6 +570,8 @@ var click=0;
     function reset(){
         document.getElementById("timer").innerHTML="03:00";
         click=0;
+        m=3;
+        s=0;  
     }
 //pos->stimulus saved  apos->values         
     </script>
