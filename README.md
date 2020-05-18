@@ -6,6 +6,7 @@ and focus.
 <h3><strong>How to reproduce the environment locally:</strong></h3>
 1. Clone this repository
    ```git clone https://github.com/aryanrana/Letter_Cancellation.git```
+   
 2. Check that the stylesheet and the main HTML file are in the same folder.
 
 3. Run the HTML file in an appropriate program.
