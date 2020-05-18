@@ -553,6 +553,8 @@ var click=0;
         }
 
         function check(){
+            right=0;
+            mark=0;
                 for(i=1;i<=200;i++){
                     if(cancelled[i]===1){
                         for(j=0;j<60;j++){
@@ -569,7 +571,8 @@ var click=0;
                 else{
                     left=60-right;
                     wrong=mark-right;
-                    alert("You marked "+mark+" out of which "+right+" were right, "+left+" were not marked and "+wrong+" were marked wrong.")
+                    alert("You marked "+mark+" out of which "+right+" were right, "+left+" were not marked and "+wrong+" were marked wrong.");
+                    location.reload();
                 }
                 reset();
                 m=-1;
