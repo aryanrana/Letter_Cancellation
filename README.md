@@ -6,10 +6,10 @@ and focus.
 ## To reproduce the environment locally:
 1. Clone this repository 
 
-    ```git clone https://github.com/RachitBansal/RedditFlairDetector.git```
+    ```git clone https://github.com/aryanrana/Letter_Cancellation.git```
     
 2. Make sure the stylesheet is in the same folder as the HTML file 
 
 3. Run the HTML file in an appropriate program.
   
- You should see the webpage and the test running in your own system.
+You should see the webpage and the test running in your own system.
