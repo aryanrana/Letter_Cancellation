@@ -13,6 +13,3 @@ and focus.
 3. Run the HTML file in an appropriate program.
   
  You should see the webpage and the test running in your own system.
- 
- ## Made in collaboration with:
- Rachit Bansal(Username: RachitBansal)
