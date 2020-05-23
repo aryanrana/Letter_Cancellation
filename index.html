@@ -6,6 +6,10 @@
         <meta charset="utf-8">
     </head>
     <body>
+        <label for="test_name">Enter your name:</label>
+        <input type="text" id="test_name" name="temp_name"><br>
+        <label for="test_age">Enter your age:</label>
+        <input type="input" id="test_age" name="age"><br>
         <div class="container">
             <button id="start" onclick="put()">START</button>
         </div>
@@ -237,13 +241,15 @@
             </div>
         </div>
     </body>
+ <!--   <script src="jquery-2.1.4.js"></script>  -->
+ <!--   <script src="jspdf.min.js"></script>  -->
     <script>
         var stim=Math.floor(Math.random()*26);
         
         var i,j,x,y,temp,click;
         
         var par=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-        
+        var temp_name,age;
         var com=[
                  ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1"],
                  ["1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1","1"],
@@ -485,12 +491,15 @@ function makeid(length) {
 }
       
 var temp1 = new Array();
-        
+var m,s;
+var timeArray;
+var presentTime;    
+
 function startTimer() {
-  var presentTime = document.getElementById("timer").innerHTML;
-  var timeArray = presentTime.split(/[:]+/);
-  var m = timeArray[0];
-  var s = checkSecond((timeArray[1] - 1));
+  presentTime = document.getElementById("timer").innerHTML;
+  timeArray = presentTime.split(/[:]+/);
+  m = timeArray[0];
+  s = checkSecond((timeArray[1] - 1));
   if(s==59){m=m-1}
   
   
@@ -537,6 +546,8 @@ var mark=0;
 var click=0;
        
         function put() {
+            temp_name=document.getElementById("test_name").value;
+            age=document.getElementById("test_age").value;
             var stim=Math.floor(Math.random()*26);
             document.getElementById("stimulus").innerHTML=par[stim];        
             pos=shuffle(pos)
@@ -566,17 +577,17 @@ var click=0;
                         mark=mark+1;
                     }
                 }
+                left=60-right;
+                wrong=mark-right;
                 if(right===60){
                     alert("Congrats, you completed with perfect score");
+                    location.reload();
                 }
                 else{
-                    left=60-right;
-                    wrong=mark-right;
-                    alert("You marked "+mark+" out of which "+right+" were right, "+left+" were not marked and "+wrong+" were marked wrong.");
+                    alert( temp_name+" of age "+age+" marked "+mark+" out of which "+right+" were right, "+left+" were not marked and "+wrong+" were marked wrong.");
                     location.reload();
                 }
                 reset();
-                m=-1;
         }
 
     function reset(){
