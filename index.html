@@ -242,7 +242,7 @@
         </div>
     </body>
  <!--   <script src="jquery-2.1.4.js"></script>  -->
- <!--   <script src="jspdf.min.js"></script>  -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <script>
         var stim=Math.floor(Math.random()*26);
         
@@ -571,6 +571,7 @@ var click=0;
                     if(cancelled[i]===1){
                         for(j=0;j<60;j++){
                             if(i===pos[j]){
+                                console.log(i);
                                 right=right+1;
                             }
                         }
@@ -579,16 +580,24 @@ var click=0;
                 }
                 left=60-right;
                 wrong=mark-right;
-                if(right===60){
-                    alert("Congrats, you completed with perfect score");
-                    location.reload();
-                }
-                else{
-                    alert( temp_name+" of age "+age+" marked "+mark+" out of which "+right+" were right, "+left+" were not marked and "+wrong+" were marked wrong.");
-                    location.reload();
-                }
+                generate();
+                location.reload();
                 reset();
         }
+
+    function generate(){
+                var doc=new jsPDF();
+                doc.setFontSize(32);
+                doc.setTextColor(0, 19, 32);
+                doc.text(20,15,"Name:"+temp_name);
+                doc.text(20,33,"Age:"+age);
+                doc.text(20,71,"Total characters marked:"+mark);
+                doc.text(20,103,"Correct characters marked:"+right);
+                doc.text(20,135,"Incorrect characters marked:"+wrong);
+                doc.text(20,166,"Characters omitted:"+left);
+                doc.text(20,198,"Time taken:"+(2-m)+"m "+(60-s)+"s");
+                doc.save('test.pdf');
+    }
 
     function reset(){
         document.getElementById("timer").innerHTML="03:00";
