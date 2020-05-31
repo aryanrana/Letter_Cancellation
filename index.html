@@ -345,7 +345,8 @@ function checkSecond(sec) {
   return sec;
 }
 
-
+var today;
+var date,time,dateTime;
 var left=0;
 var right=0;
 var wrong=0;
@@ -364,9 +365,13 @@ var click=0;
             for(var i=60;i<200;i++){
                         apos[pos[i]]=makeid(1);    
                 } 
-                    document.getElementById("timer").innerHTML="03:00";
+            document.getElementById("timer").innerHTML="03:00";
             if(click!==1){startTimer();}
             click=1;
+            today=new Date();
+            date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+            time = today.getHours()+":"+today.getMinutes()+":"+ today.getSeconds();
+            dateTime = date+" "+time;
             set();        
         }
 
@@ -394,13 +399,14 @@ var click=0;
                 var doc=new jsPDF();
                 doc.setFontSize(32);
                 doc.setTextColor(0, 19, 32);
-                doc.text(20,15,"Name:"+temp_name);
-                doc.text(20,33,"Age:"+age);
+                doc.text(20,20,"Name:"+temp_name);
+                doc.text(20,38,"Age:"+age);
                 doc.text(20,71,"Total characters marked:"+mark);
                 doc.text(20,103,"Correct characters marked:"+right);
                 doc.text(20,135,"Incorrect characters marked:"+wrong);
                 doc.text(20,166,"Characters omitted:"+left);
                 doc.text(20,198,"Time taken:"+(2-m)+"m "+(60-s)+"s");
+                doc.text(20,280,"Test taken at:"+dateTime);
                 doc.save('test.pdf');
     }
 
