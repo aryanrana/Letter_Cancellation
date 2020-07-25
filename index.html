@@ -397,6 +397,7 @@ var click=0;
 
     function generate(){
                 var doc=new jsPDF();
+                var file_name;
                 doc.setFontSize(32);
                 doc.setTextColor(0, 19, 32);
                 doc.text(20,20,"Name: "+temp_name);
@@ -407,7 +408,8 @@ var click=0;
                 doc.text(20,166,"Characters omitted: "+left);
                 doc.text(20,198,"Time taken: "+(2-m)+"m "+(60-s)+"s");
                 doc.text(20,280,"Test taken at: "+dateTime);
-                doc.save('test.pdf');
+                file_name=temp_name+"_"+dateTime;
+                doc.save(file_name+'.pdf');
     }
 
     function reset(){
